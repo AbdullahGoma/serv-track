@@ -1,9 +1,9 @@
-<header>
-  <div id="logo">
+<header class="page-header">
+  <div class="page-header__logo">
     <img src="logo.png" alt="Website logo, a server" />
   </div>
 
-  <nav>
+  <nav class="page-header__nav">
     <ul>
       <li>
         <a href="/">Home</a>
@@ -12,9 +12,9 @@
         <a href="/">Management</a>
       </li>
       <li>
-        <button>
-          <span> Logout </span>
-          <span class="icon"> → </span>
+        <button class="button">
+          <span>Logout</span>
+          <span class="button__icon">→</span>
         </button>
       </li>
     </ul>
@@ -22,56 +22,69 @@
 </header>
 
 <main>
-  <div id="dashboard">
-    <div class="dashboard-item">
+  <div class="dashboard">
+    <!-- Status Card -->
+    <div class="dashboard-item status-card">
       <article>
-        <header>
-          <img src="status.png" alt="A signal symbol" />
-          <h2>Server Status</h2>
+        <header class="card-header">
+          <img class="card-header__icon" src="status.png" alt="A signal symbol" />
+          <h2 class="card-header__title">Server Status</h2>
         </header>
-        <div>
+        <div class="status-indicator">
           @if (currentStatus === 'online') {
-          <p>Servers are online</p>
-          <p>All systems are operational.</p>
+          <div class="status-badge"></div>
+          <div class="status-message">
+            <p>Servers are online</p>
+            <p>All systems are operational.</p>
+          </div>
           } @else if (currentStatus === 'offline') {
-          <p>Servers are offline</p>
-          <p>Functionality should be restored soon.</p>
+          <div class="status-badge"></div>
+          <div class="status-message">
+            <p>Servers are offline</p>
+            <p>Functionality should be restored soon.</p>
+          </div>
           } @else {
-          <p>Server status is unknown</p>
-          <p>Fetching server status failed.</p>
+          <div class="status-badge"></div>
+          <div class="status-message">
+            <p>Server status is unknown</p>
+            <p>Fetching server status failed.</p>
+          </div>
           }
         </div>
       </article>
     </div>
 
-    <div class="dashboard-item">
+    <!-- Traffic Card -->
+    <div class="dashboard-item traffic-card">
       <article>
-        <header>
-          <img src="globe.png" alt="A globe" />
-          <h2>Traffic</h2>
+        <header class="card-header">
+          <img class="card-header__icon" src="globe.png" alt="A globe" />
+          <h2 class="card-header__title">Traffic</h2>
         </header>
-        <div id="traffic">
+        <div>
           <p>Last 7 days</p>
-
-          <div id="chart">
+          <div class="traffic-chart">
             @for (dataPoint of dummyTrafficData; track dataPoint.id) {
-            <div
+            <div class="traffic-chart__bar"
               [style.height]="(dataPoint.value / maxTraffic) * 100 + '%'"
-            ></div>
+              [attr.data-value]="dataPoint.value">
+            </div>
             }
           </div>
         </div>
       </article>
     </div>
 
-    <div class="dashboard-item">
+    <!-- Support Tickets Card -->
+    <div class="dashboard-item tickets-card">
       <article>
-        <header>
-          <img src="list.png" alt="A list of items" />
-          <h2>Support Tickets</h2>
+        <header class="card-header">
+          <img class="card-header__icon" src="list.png" alt="A list of items" />
+          <h2 class="card-header__title">Support Tickets</h2>
         </header>
-        <div id="status">
-          <p>Todo...</p>
+        <div class="tickets-placeholder">
+          <img src="todo-icon.png" alt="Todo icon">
+          <p>Feature coming soon</p>
         </div>
       </article>
     </div>
