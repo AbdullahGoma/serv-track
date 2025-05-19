@@ -1,9 +1,3 @@
-.traffic-card p {
-  margin-bottom: 1.5rem;
-  font-size: 0.95rem;
-  color: var(--text-light);
-}
-
 .traffic-chart {
   height: 12rem;
   display: flex;

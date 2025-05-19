@@ -1,18 +1,12 @@
-<article>
-  <header class="card-header">
-    <img class="card-header__icon" src="globe.png" alt="A globe" />
-    <h2 class="card-header__title">Traffic</h2>
-  </header>
-  <div>
-    <p>Last 7 days</p>
-    <div class="traffic-chart">
-      @for (dataPoint of dummyTrafficData; track dataPoint.id) {
-      <div
-        class="traffic-chart__bar"
-        [style.height]="(dataPoint.value / maxTraffic) * 100 + '%'"
-        [attr.data-value]="dataPoint.value"
-      ></div>
-      }
-    </div>
+<div>
+  <p>Last 7 days</p>
+  <div class="traffic-chart">
+    @for (dataPoint of dummyTrafficData; track dataPoint.id) {
+    <div
+      class="traffic-chart__bar"
+      [style.height]="(dataPoint.value / maxTraffic) * 100 + '%'"
+      [attr.data-value]="dataPoint.value"
+    ></div>
+    }
   </div>
-</article>
+</div>
