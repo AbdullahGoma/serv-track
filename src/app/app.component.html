@@ -1,92 +1,20 @@
-<header class="page-header">
-  <div class="page-header__logo">
-    <img src="logo.png" alt="Website logo, a server" />
-  </div>
-
-  <nav class="page-header__nav">
-    <ul>
-      <li>
-        <a href="/">Home</a>
-      </li>
-      <li>
-        <a href="/">Management</a>
-      </li>
-      <li>
-        <button class="button">
-          <span>Logout</span>
-          <span class="button__icon">→</span>
-        </button>
-      </li>
-    </ul>
-  </nav>
-</header>
+<app-header />
 
 <main>
   <div class="dashboard">
     <!-- Status Card -->
     <div class="dashboard-item status-card">
-      <article>
-        <header class="card-header">
-          <img class="card-header__icon" src="status.png" alt="A signal symbol" />
-          <h2 class="card-header__title">Server Status</h2>
-        </header>
-        <div class="status-indicator">
-          @if (currentStatus === 'online') {
-          <div class="status-badge"></div>
-          <div class="status-message">
-            <p>Servers are online</p>
-            <p>All systems are operational.</p>
-          </div>
-          } @else if (currentStatus === 'offline') {
-          <div class="status-badge"></div>
-          <div class="status-message">
-            <p>Servers are offline</p>
-            <p>Functionality should be restored soon.</p>
-          </div>
-          } @else {
-          <div class="status-badge"></div>
-          <div class="status-message">
-            <p>Server status is unknown</p>
-            <p>Fetching server status failed.</p>
-          </div>
-          }
-        </div>
-      </article>
+      <app-server-status />
     </div>
 
     <!-- Traffic Card -->
     <div class="dashboard-item traffic-card">
-      <article>
-        <header class="card-header">
-          <img class="card-header__icon" src="globe.png" alt="A globe" />
-          <h2 class="card-header__title">Traffic</h2>
-        </header>
-        <div>
-          <p>Last 7 days</p>
-          <div class="traffic-chart">
-            @for (dataPoint of dummyTrafficData; track dataPoint.id) {
-            <div class="traffic-chart__bar"
-              [style.height]="(dataPoint.value / maxTraffic) * 100 + '%'"
-              [attr.data-value]="dataPoint.value">
-            </div>
-            }
-          </div>
-        </div>
-      </article>
+      <app-traffic />
     </div>
 
     <!-- Support Tickets Card -->
     <div class="dashboard-item tickets-card">
-      <article>
-        <header class="card-header">
-          <img class="card-header__icon" src="list.png" alt="A list of items" />
-          <h2 class="card-header__title">Support Tickets</h2>
-        </header>
-        <div class="tickets-placeholder">
-          <img src="todo-icon.png" alt="Todo icon">
-          <p>Feature coming soon</p>
-        </div>
-      </article>
+      <app-tickets />
     </div>
   </div>
 </main>

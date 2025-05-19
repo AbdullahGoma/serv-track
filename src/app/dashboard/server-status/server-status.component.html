@@ -1,0 +1,27 @@
+<article>
+  <header class="card-header">
+    <img class="card-header__icon" src="status.png" alt="A signal symbol" />
+    <h2 class="card-header__title">Server Status</h2>
+  </header>
+  <div class="status-indicator">
+    @if (currentStatus === 'online') {
+    <div class="status-badge"></div>
+    <div class="status-message">
+      <p>Servers are online</p>
+      <p>All systems are operational.</p>
+    </div>
+    } @else if (currentStatus === 'offline') {
+    <div class="status-badge"></div>
+    <div class="status-message">
+      <p>Servers are offline</p>
+      <p>Functionality should be restored soon.</p>
+    </div>
+    } @else {
+    <div class="status-badge"></div>
+    <div class="status-message">
+      <p>Server status is unknown</p>
+      <p>Fetching server status failed.</p>
+    </div>
+    }
+  </div>
+</article>

@@ -1,0 +1,40 @@
+.traffic-card p {
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+  color: var(--text-light);
+}
+
+.traffic-chart {
+  height: 12rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+  padding: 0 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+}
+
+.traffic-chart__bar {
+  flex: 1;
+  background: linear-gradient(to bottom, var(--primary), var(--secondary));
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  transition: var(--transition);
+  position: relative;
+}
+
+.traffic-chart__bar:hover {
+  opacity: 0.9;
+  transform: scaleY(1.05);
+}
+
+.traffic-chart__bar::after {
+  content: attr(data-value);
+  position: absolute;
+  top: -25px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.7rem;
+  color: var(--text-medium);
+  font-weight: 600;
+}
