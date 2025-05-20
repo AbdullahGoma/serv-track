@@ -28,21 +28,21 @@
 }
 
 /* Online Status */
-:host(.status-online) p:first-child::before {
+.status-online p:first-child::before {
   background-color: var(--success);
   box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.3);
   animation: pulse 2s infinite;
 }
 
 /* Offline Status */
-:host(.status-offline) p:first-child::before {
+.status-offline p:first-child::before {
   background-color: var(--error);
   box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.3);
   animation: pulse 1.5s infinite;
 }
 
 /* Unknown Status */
-:host(.status-unknown) p:first-child::before {
+.status-unknown p:first-child::before {
   background-color: var(--warning);
   box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.3);
   animation: pulse 1.5s infinite;

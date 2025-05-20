@@ -8,8 +8,8 @@ import { Component, HostBinding } from '@angular/core';
   styleUrl: './server-status.component.css',
 })
 export class ServerStatusComponent {
-  @HostBinding('class') get statusClass() {
-    return `status-${this.currentStatus}`;
-  }
+  // @HostBinding('class') get statusClass() {
+  //   return `status-${this.currentStatus}`;
+  // }
   currentStatus: 'online' | 'offline' | 'unknown' = 'online';
 }
