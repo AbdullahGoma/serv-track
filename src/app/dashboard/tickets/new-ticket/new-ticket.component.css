@@ -38,24 +38,7 @@ textarea {
 .button {
   margin-top: 0.5rem;
   align-self: flex-start;
-}
-
-.button__icon::after {
-  content: "→";
-  display: inline-block;
-}
-
-.button:hover .button__icon::after {
-  animation: arrowBounce 0.6s infinite alternate;
-}
-
-@keyframes arrowBounce {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(4px);
-  }
+  padding: .5rem .75rem;
 }
 
 @media (min-width: 768px) {
