@@ -1,27 +1,61 @@
-.status-indicator {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-}
-
-.status-indicator:hover .status-badge::after {
-  opacity: 0.3;
-}
-
-.status-message {
+/* server-status.component.css */
+:host {
+  display: block;
+  position: relative;
+  padding-left: 1.5rem;
   font-size: 1rem;
   color: var(--text-medium);
   line-height: 1.5;
 }
 
-.status-message p:first-child {
+:host p:first-child {
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: var(--text-dark);
+  position: relative;
+}
+
+/* Status indicator (pseudo-element) */
+:host p:first-child::before {
+  content: '';
+  position: absolute;
+  left: -1.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+/* Online Status */
+:host(.status-online) p:first-child::before {
+  background-color: var(--success);
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.3);
+  animation: pulse 2s infinite;
+}
+
+/* Offline Status */
+:host(.status-offline) p:first-child::before {
+  background-color: var(--error);
+  box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.3);
+  animation: pulse 1.5s infinite;
+}
+
+/* Unknown Status */
+:host(.status-unknown) p:first-child::before {
+  background-color: var(--warning);
+  box-shadow: 0 0 0 2px rgba(255, 193, 7, 0.3);
+  animation: pulse 1.5s infinite;
 }
 
 @media (min-width: 768px) {
-  .status-message {
+  :host {
     font-size: 1.1rem;
+    padding-left: 1.75rem;
+  }
+  
+  :host p:first-child::before {
+    width: 14px;
+    height: 14px;
   }
 }

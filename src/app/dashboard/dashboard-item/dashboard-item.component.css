@@ -1,5 +1,5 @@
 /* Base Card Styles */
-.dashboard-item {
+:host {
   padding: 1.75rem;
   border-radius: var(--border-radius);
   background-color: var(--card-bg);
@@ -12,7 +12,7 @@
   height: 100%;
 }
 
-.dashboard-item:hover {
+:host:hover {
   transform: translateY(-5px);
   box-shadow: var(--box-shadow-lg);
 }

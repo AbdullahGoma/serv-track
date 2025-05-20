@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
 
 @Component({
   selector: 'app-server-status',
@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './server-status.component.css',
 })
 export class ServerStatusComponent {
-  currentStatus = 'online';
+  @HostBinding('class') get statusClass() {
+    return `status-${this.currentStatus}`;
+  }
+  currentStatus: 'online' | 'offline' | 'unknown' = 'online';
 }
