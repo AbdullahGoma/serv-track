@@ -28,7 +28,7 @@ export class ControlComponent {
 
 
   onClick() {
-    console.log('Clicked!');
-    console.log(this.el);
+    // console.log('Clicked!');
+    // console.log(this.el);
   }
 }
